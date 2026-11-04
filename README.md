@@ -61,7 +61,7 @@ rm -rf ~/.config/niri
 | Key | Action |
 | --- | --- |
 | `Super+H`/`Super+L` | Column left/right |
-| `Super+U`/`Super+I` | Window down/up |
+| `Alt+J`/`Alt+K` | Window down/up |
 | `Super+J`/`Super+K` | Workspace down/up |
 
 ### Move
