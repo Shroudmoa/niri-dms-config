@@ -2,66 +2,92 @@
 
 ![preview](preview/acats.png)
 
-My [niri](https://github.com/YaLTeR/niri) config with [DankMaterialShell](https://danklinux.com/) integration.
+[niri](https://github.com/YaLTeR/niri) + [DankMaterialShell](https://danklinux.com/)
 
-## Structure
+## Install (Fedora)
 
-- `config.kdl` - Main niri configuration
-- `dms/` - DankMaterialShell generated/config files
-- `preview/` - Screenshots
+```bash
+# Enable DMS copr
+sudo dnf copr enable avengemedia/dms
+
+# Install
+sudo dnf install niri dms
+
+# Auto start with niri
+systemctl --user add-wants niri.service dms
+```
+
+Copy this config to `~/.config/niri/`
+
+```bash
+git clone <repo> ~/.config/niri
+```
+
+## Delete (Fedora)
+
+```bash
+# Remove packages
+sudo dnf remove dms niri
+
+# Disable service
+systemctl --user disable --now dms
+
+# Clean up
+rm -rf ~/.config/quickshell/dms ~/.config/DankMaterialShell ~/.local/state/DankMaterialShell ~/.cache/DankMaterialShell
+rm -rf ~/.config/niri
+```
 
 ## Cheat Sheet
 
-### Launchers
-| Keybind | Action |
+### Apps
+| Key | Action |
 | --- | --- |
-| `Super+Return` | Terminal (kitty) |
-| `Super+D` | App launcher (rofi) |
-| `Super+T` | Terminal (alacritty) |
+| `Super+Return` | kitty |
+| `Super+D` | rofi |
+| `Super+T` | alacritty |
 
-### Window Management
-| Keybind | Action |
+### Windows
+| Key | Action |
 | --- | --- |
-| `Super+Q` | Close window |
-| `Super+F` | Maximize column |
-| `Super+Shift+F` | Fullscreen window |
-| `Super+V` | Toggle floating |
-| `Super+P` | Switch between floating/tiling |
-| `Super+B`/`Super+N` | Consume/expel window |
-| `Super+Comma`/`Super+Period` | Move window in/out of column |
+| `Super+Q` | Close |
+| `Super+F` | Maximize |
+| `Super+Shift+F` | Fullscreen |
+| `Super+V` | Toggle float |
+| `Super+P` | Float/tiling |
+| `Super+B`/`Super+N` | Consume/expel |
+| `Super+Comma`/`Super+Period` | In/out of column |
 
-### Navigation
-| Keybind | Action |
+### Focus
+| Key | Action |
 | --- | --- |
-| `Super+H`/`Super+L` | Focus column left/right |
-| `Super+U`/`Super+I` | Focus window down/up |
-| `Super+J`/`Super+K` | Focus workspace down/up |
-| `Super+1..9` | Focus workspace 1-9 |
+| `Super+H`/`Super+L` | Column left/right |
+| `Super+U`/`Super+I` | Window down/up |
+| `Super+J`/`Super+K` | Workspace down/up |
 
-### Movement
-| Keybind | Action |
+### Move
+| Key | Action |
 | --- | --- |
-| `Super+Ctrl+H`/`L` | Move column left/right |
-| `Super+Ctrl+U`/`I` | Move window down/up or to workspace |
-| `Super+Shift+1..9` | Move column to workspace 1-9 |
+| `Super+Ctrl+H`/`L` | Move column |
+| `Super+Ctrl+U`/`I` | Move window/workspace |
+| `Super+Shift+H/J/K/L` | Move to monitor |
 
 ### Layout
-| Keybind | Action |
+| Key | Action |
 | --- | --- |
-| `Super+R` | Cycle column width presets |
-| `Super+W` | Toggle column tabbed display |
+| `Super+R` | Cycle width |
+| `Super+W` | Tabbed column |
 | `Super+C` | Center column |
-| `Super+Minus`/`Super+Plus` | Resize column width |
-| `Super+Shift+Minus`/`Plus` | Resize window height |
+| `Super+Minus`/`Plus` | Width |
+| `Super+Shift+Minus`/`Plus` | Height |
 
-### System
-| Keybind | Action |
+### Misc
+| Key | Action |
 | --- | --- |
-| `Super+O` | Toggle overview |
-| `Super+Shift+E` | Quit niri |
+| `Super+O` | Overview |
+| `Super+Shift+E` | Quit |
 | `Super+S` | Screenshot |
-| `Print`/`Alt+Print`/`Ctrl+Print` | Screenshots (screen/window/area) |
-| `XF86Audio*` | Volume control |
-| `XF86MonBrightness*` | Brightness control |
-| `Super+Shift+P` | Power off monitors |
-| `Super+Shift+Slash` | Show hotkey overlay |
+| `Print`/`Alt+Print`/`Ctrl+Print` | Screenshot modes |
+| `Super+Shift+Slash` | Hotkeys |
+| `Super+Shift+P` | Monitors off |
+| `XF86Audio*` | Volume |
+| `XF86MonBrightness*` | Brightness |
